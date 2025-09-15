@@ -535,6 +535,22 @@ CMD ["uvicorn", "src.api:app", "--host", "0.0.0.0", "--port", "8000"]
 - **Enterprise Integration**: Batch processing and webhook support
 - **Security First**: API key authentication and audit trails
 
+## Scalable cloud scope : 
+1. Data Ingestion and Storage:
+The first step is to replace local CSV files with a scalable Amazon S3 data lake for central storage, using a real-time service like Amazon Kinesis for data ingestion. This approach creates a durable and infinitely scalable foundation capable of handling continuous data streams from millions of vehicles. My data_simulator.py script is valuable here, as it defines the precise data schema that the new real-time ingestion pipeline will expect and process.
+
+2. Data Processing and Feature Engineering 
+To overcome the limitations of single-machine processing, the feature engineering workflow will be migrated from pandas to a distributed engine like Apache Spark running on AWS Glue. This serverless approach allows for the efficient processing of terabytes of data by automatically scaling compute resources as needed. My feature_engineering.py script serves as the perfect logical blueprint, as its aggregation and transformation rules will be directly translated into the new, highly scalable PySpark job.
+
+3. Model Training and Management
+Model training will be moved from a local machine to Amazon SageMaker, a dedicated ML platform. This provides access to powerful, on-demand compute resources (including GPUs), enabling me to train more complex models on massive datasets far more quickly. SageMaker also offers robust experiment tracking to systematically log and compare model performance. The core model definition and training logic within my train_model.py can be easily adapted to run as a scalable SageMaker training job.
+
+4. Model Deployment and Serving
+To ensure the prediction service is robust and scalable, my FastAPI application will be packaged into a Docker container and deployed on a managed service like Amazon SageMaker Endpoints. This creates a highly available API that automatically scales to handle traffic fluctuations, ensuring low-latency predictions for millions of users. My api.py script is essential as it provides the complete application logic, including endpoints and data validation, which will be placed directly into the container for deployment.
+
+5. Orchestration and MLOps
+Finally, the entire process will be automated by connecting each stage into a cohesive workflow using a service like AWS Step Functions. This creates a hands-off MLOps pipeline that automatically triggers feature engineering, model retraining, and deployment as new data becomes available. The sequential order in which I currently run my scripts serves as the exact blueprint for this automated workflow, ensuring a reliable and continuously improving system without manual intervention.
+
 
 
 ## Contributing
@@ -544,4 +560,5 @@ CMD ["uvicorn", "src.api:app", "--host", "0.0.0.0", "--port", "8000"]
 3. Make your changes
 4. Add tests if applicable
 5. Submit a pull request
+
 
