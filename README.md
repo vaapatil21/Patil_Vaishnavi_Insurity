@@ -53,8 +53,8 @@ python-multipart>=0.0.6
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/telematics-ai.git
-cd telematics-ai
+git clone https://github.com/vaapatil21/Patil_Vaishnavi_Insurity.git
+cd Patil_Vaishnavi_Insurity
 ```
 
 ### 2. Install Dependencies
@@ -92,7 +92,7 @@ streamlit run src/dashboard.py
 </details>
 
 <details>
-<summary><strong>📁 Project Structure</strong></summary>
+<summary><strong> Project Structure</strong></summary>
 
 ```
 telematics-ai/
@@ -103,19 +103,28 @@ telematics-ai/
 ├── src/
 │   ├── api.py                   # FastAPI application with ML endpoints
 │   ├── dashboard.py             # Streamlit dashboard interface
-│   └── __init__.py
+|   ├── data_simulator.py
+|   ├── feature_engineering.py
+|   ├── model_comparison.py
+|   ├── quick_accuracy_check.py
+│   └── train_model.py
 ├── models/
-│   └── discount_eligibility_model.pkl  # Trained XGBoost model
+│   └── discount_eligibility_model.pkl  # Trained XGBoost model...etc
 ├── data/
-│   └── synthetic_telematics_data.csv   # Sample telematics data
+│   ├──telematics_data.csv   # Sample telematics data
+|   ├── business_analysis.csv
+|   ├── ml_ready_dataset.csv
+|   └── model_comparison_results.csv
 └── docs/
-    └── INTEGRATION.md           # Integration documentation
+    └── ModelDevelopment.ipynb           # Integration documentation
+└── bin/
+    └── run.sh
 ```
 
 </details>
 
 <details>
-<summary><strong>🔧 API Usage</strong></summary>
+<summary><strong>API Usage</strong></summary>
 
 ### Authentication
 All API endpoints require authentication via API key in the request header:
@@ -526,9 +535,7 @@ CMD ["uvicorn", "src.api:app", "--host", "0.0.0.0", "--port", "8000"]
 - **Enterprise Integration**: Batch processing and webhook support
 - **Security First**: API key authentication and audit trails
 
-## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Contributing
 
@@ -538,6 +545,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 4. Add tests if applicable
 5. Submit a pull request
 
-## Contact
-
-For questions or support, please contact [your-email@example.com]
