@@ -1,0 +1,19 @@
+# Core Libraries
+pandas
+numpy
+scikit-learn
+xgboost
+imbalanced-learn
+
+# Web App & Plotting
+streamlit
+plotly
+matplotlib
+seaborn
+
+# APIs & Utilities
+requests
+joblib
+shap
+httpx>=0.24.0
+python-multipart>=0.0.6
